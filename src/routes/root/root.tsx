@@ -9,12 +9,12 @@ const Root = () => {
   return (
     <div className="bg-[#192026] min-h-screen">
       <Header />
-      <div className="max-w-[1200px] px-[15px] mx-auto">
-        <RecomendedMovies />
-        <MovieList />
-      </div>
-      
-      {outlet}
+      {outlet || (
+        <div className="max-w-[1200px] px-[15px] mx-auto">
+          <RecomendedMovies />
+          <MovieList />
+        </div>
+      )}
     </div>
   );
 };

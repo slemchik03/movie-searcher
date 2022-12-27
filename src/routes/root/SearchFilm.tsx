@@ -19,7 +19,7 @@ const SearchFilm = () => {
           type="text"
           placeholder="Search movie"
         />
-        {deferredValue && isFocused && (
+        {deferredValue &&  (
           <Suspense fallback={<SearchResultsLoading />}>
             <SearchResults query={deferredValue} />
           </Suspense>

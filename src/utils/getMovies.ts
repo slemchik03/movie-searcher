@@ -34,7 +34,9 @@ export default async ({url, title}: ICategory) => {
     );
     const movies: IMovieResponse = (await response.json());
     movies.urlTitle = title
-
+      console.log(`https://api.themoviedb.org/3${url}&api_key=${API_KEY}`);
+      
+      
     return  movies;
   } catch (error) {
     return [] as unknown as IMovieResponse;

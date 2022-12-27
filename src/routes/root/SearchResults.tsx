@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { useQuery } from "react-query";
+import { Link } from "react-router-dom";
 import getMoviesByQuery from "../../utils/getMoviesByQuery";
 
 interface Props {
@@ -18,9 +19,9 @@ const SearchResults: FC<Props> = ({ query }) => {
       ) : (
         data?.results
           ?.slice(0, 4)
-          ?.map(({ title, backdrop_path, poster_path }) => {
+          ?.map(({ title, backdrop_path, poster_path, id }) => {
             return (
-              <div className="grid grid-flow-col items-center gap-4 py-2">
+              <Link to={"/movie/"+id} key={id} className="grid grid-flow-col items-center gap-4 py-2">
                 <img
                   src={`https://image.tmdb.org/t/p/original${
                     backdrop_path || poster_path
@@ -28,7 +29,7 @@ const SearchResults: FC<Props> = ({ query }) => {
                   className="w-[60px] h-auto object-contain"
                 />
                 <p className="font-semibold text-[16px] text-white">{title}</p>
-              </div>
+              </Link>
             );
           })
       )}
